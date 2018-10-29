@@ -6,6 +6,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:share/share.dart';
+import 'generated/i18n.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,6 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [S.delegate],
+      supportedLocales: S.delegate.supportedLocales,
+      localeResolutionCallback: S.delegate.resolution(fallback: new Locale("ja","")),
       title: 'かしかりメモ',
       routes: <String, WidgetBuilder>{
         '/': (_) =>  Splash(),
@@ -32,7 +36,8 @@ class _MyList extends State<List> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("リスト画面"),
+        title: Text(S.of(context).title),
+        //title: const Text("リスト画面"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.exit_to_app),

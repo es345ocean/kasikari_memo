@@ -21,6 +21,17 @@ class S implements WidgetsLocalizations {
   @override
   TextDirection get textDirection => TextDirection.ltr;
 
+  String get title => "title";
+}
+
+class ja extends S {
+  const ja();
+
+   @override
+  TextDirection get textDirection => TextDirection.ltr;
+
+  @override
+  String get title => "タイトル";
 }
 
 class en extends S {
@@ -34,6 +45,7 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<WidgetsLocali
   List<Locale> get supportedLocales {
     return const <Locale>[
 
+      const Locale("ja", ""),
       const Locale("en", ""),
 
     ];
@@ -58,6 +70,8 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<WidgetsLocali
     final String lang = getLang(locale);
     switch (lang) {
 
+      case "ja":
+        return new SynchronousFuture<WidgetsLocalizations>(const ja());
       case "en":
         return new SynchronousFuture<WidgetsLocalizations>(const en());
 
