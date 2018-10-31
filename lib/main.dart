@@ -7,16 +7,20 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:share/share.dart';
 import 'generated/i18n.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      localizationsDelegates: [S.delegate],
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
       supportedLocales: S.delegate.supportedLocales,
-      localeResolutionCallback: S.delegate.resolution(fallback: new Locale("ja","")),
+      localeResolutionCallback: S.delegate.resolution(fallback: new Locale("en","")),
       title: 'かしかりメモ',
       routes: <String, WidgetBuilder>{
         '/': (_) =>  Splash(),
