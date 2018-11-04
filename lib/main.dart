@@ -40,8 +40,8 @@ class _MyList extends State<List> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.of(context).title),
-        //title: const Text("リスト画面"),
+        //title: Text(S.of(context).title),
+        title: const Text("リスト画面"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.exit_to_app),
@@ -314,8 +314,14 @@ class Splash extends StatelessWidget{
   Widget build(BuildContext context) {
     _getUser(context);
     return Scaffold(
+      backgroundColor: Colors.blue,
       body: Center(
-        child: const Text("スプラッシュ画面"),
+        child:
+          FractionallySizedBox(
+            child: Image.asset('res/image/note.png'),
+            heightFactor: 0.4,
+            widthFactor: 0.4,
+          ),
       ),
     );
   }
