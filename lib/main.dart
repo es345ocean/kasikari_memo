@@ -22,8 +22,7 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: S.delegate.supportedLocales,
       localeResolutionCallback: S.delegate.resolution(fallback: new Locale("en","")),
-      title: "貸し借りメモ",
-      //title:  S.of(context).title,
+      title: ja().title,
       routes: <String, WidgetBuilder>{
         '/': (_) =>  Splash(),
         '/list': (_) => List(),
@@ -42,8 +41,7 @@ class _MyList extends State<List> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        //title: Text(S.of(context).title),
-        title: const Text("リスト画面"),
+        title: Text(S.of(context).title),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.exit_to_app),
@@ -92,10 +90,8 @@ class _MyList extends State<List> {
           children: <Widget>[
             ListTile(
               leading: const Icon(Icons.android),
-              title: Text("【 " + (document['borrowOrLend'] == "lend"?S.of(context).lend: S.of(context).borrow) +
-                  " 】"+ document['stuff']),
-              subtitle: Text(S.of(context).deadline(document['date'].toString().substring(0,10)) +"\n"+
-                  S.of(context).who(document['user'])),
+              title: Text("【 " + (document['borrowOrLend'] == "lend"?S.of(context).lend: S.of(context).borrow) + " 】"+ document['stuff']),
+              subtitle: Text(S.of(context).deadline(document['date'].toString().substring(0,10)) +"\n"+ S.of(context).who(document['user'])),
             ),
             ButtonTheme.bar(
                 child: ButtonBar(
@@ -253,7 +249,6 @@ class _MyInputFormState extends State<InputForm> {
               TextFormField(
                 decoration:  InputDecoration(
                   icon: const Icon(Icons.person),
-                  //hintText: S.of(context).Registration_name,
                   hintText: (_data.borrowOrLend == "lend"?S.of(context).Registration_name_lend: S.of(context).Registration_name_borrow),
                   labelText: 'Name',
                 ),
@@ -271,7 +266,6 @@ class _MyInputFormState extends State<InputForm> {
               TextFormField(
                 decoration:  InputDecoration(
                   icon: const Icon(Icons.business_center),
-                  //hintText: S.of(context).borrowed_lending,
                   hintText: (_data.borrowOrLend == "lend"?S.of(context).Registration_loan_lend: S.of(context).Registration_loan_borrow),
                   labelText: 'Loan',
                 ),
@@ -384,10 +378,10 @@ void showBasicDialog(BuildContext context) {
                     },
                     validator: (value) {
                       if (value.isEmpty) {
-                        return S.of(context).validate_password1;
+                        return S.of(context).validate_password_null_empty;
                       }
                       if(value.length<6){
-                        return S.of(context).validate_password2;
+                        return S.of(context).validate_password_short_length;
                       }
                     },
                   ),

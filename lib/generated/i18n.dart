@@ -45,8 +45,8 @@ class S implements WidgetsLocalizations {
   String get validate_loan => "Please enter your loan";
   String get validate_mail => "Please enter your email";
   String get validate_name => "Please enter your name";
-  String get validate_password1 => "Please enter password";
-  String get validate_password2 => "More than 6 characters";
+  String get validate_password_null_empty => "Please enter password";
+  String get validate_password_short_length => "More than 6 characters";
   String deadline(String time) => "Deadline:$time";
   String login_user(String mail) => "Login User : $mail";
   String who(String name) => "Who:$name";
@@ -65,13 +65,15 @@ class ja extends S {
   @override
   String get Registration_loan_lend => "貸したもの";
   @override
-  String get title => "貸し借りメモ";
+  String get title => "かしかりメモ";
   @override
   String get login => "ログイン";
   @override
   String get fail_login_firebase => "Firebaseへのログインに失敗しました。";
   @override
   String get login_register => "ログイン/登録ダイアログ";
+  @override
+  String get validate_loan => "借りたもの、貸したものは必須入力項目です";
   @override
   String get change_deadline => "締め切り日変更";
   @override
@@ -85,15 +87,23 @@ class ja extends S {
   @override
   String get Registration_name_borrow => "借りた相手";
   @override
+  String get validate_name => "名前の入力は必須です。";
+  @override
   String get edit => "編集";
   @override
   String get Registration_name_lend => "貸した相手";
+  @override
+  String get validate_password_null_empty => "パスワードは必須入力項目です";
+  @override
+  String get validate_password_short_length => "パスワードは6文字以上です";
   @override
   String get Registration_borrow => "借りた";
   @override
   String get fail_register_firebase => "Firebaseへの登録に失敗しました。";
   @override
   String get Registration_loan_borrow => "借りたもの";
+  @override
+  String get validate_mail => "Emailは必須入力項目です";
   @override
   String get borrow => "借";
   @override

@@ -1,5 +1,5 @@
 {
-  "title":"貸し借りメモ",
+  "title":"かしかりメモ",
   "deadline":"締切日:$time",
   "edit":"編集",
   "input_title":"貸し借り入力",
@@ -23,9 +23,9 @@
   "fail_login_firebase":"Firebaseへのログインに失敗しました。",
   "fail_register_firebase":"Firebaseへの登録に失敗しました。",
   "fail_connect_firebase":"Firebaseとの接続に失敗しました。",
-  "varidate_name":"名前の入力は必須です。",
-  "varidate_loan":"借りたもの、貸したものは必須入力項目です",
-  "varidate_mail":"Emailは必須入力項目です",
-  "varidate_password1":"パスワードは必須入力項目です",
-  "varidate_password2":"パスワードは6文字以上です"
+  "validate_name":"名前の入力は必須です。",
+  "validate_loan":"借りたもの、貸したものは必須入力項目です",
+  "validate_mail":"Emailは必須入力項目です",
+  "validate_password_null_empty":"パスワードは必須入力項目です",
+  "validate_password_short_length":"パスワードは6文字以上です"
 }
